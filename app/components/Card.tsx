@@ -23,7 +23,7 @@ export default function Card({ data }: CardProps) {
                     {data.name}
                 </h2>
                 <p className="text-xs text-gray-400 mb-2 truncate w-full text-left">
-                    Cidade dos Ricks
+                    {data.location?.name || "Desconhecido"}
                 </p>
 
                 <div className="w-full max-h-0 opacity-0 group-hover:max-h-[250px] group-hover:opacity-100 transition-all duration-500 ease-in-out overflow-hidden">
@@ -38,7 +38,7 @@ export default function Card({ data }: CardProps) {
                                 <span className="font-bold text-gray-800 text-xs mb-1">Espécie</span>
                                 <span>{data.species}</span>
                             </div>
-                            <div className="flex flex-col items-end">
+                            <div className="flex flex-col items-center">
                                 <span className="font-bold text-gray-800 text-xs mb-1">Gênero</span>
                                 <span>{data.gender}</span>
                             </div>

@@ -65,8 +65,10 @@ export default async function Home(props: {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-[1200px]">
-                    {characters.map((char) => (
-                        <Card key={char.id} data={char} />
+                    {characters.map((char, index) => (
+                        <div key={char.id} className={index > 3 ? "hidden md:block" : "block"}>
+                            <Card data={char} />
+                        </div>
                     ))}
                 </div>
 
