@@ -148,10 +148,10 @@ Após analisar a API, essa se mostrou a forma mais consistente de agrupar person
 * 📱 **Responsividade aprimorada**
   Melhor adaptação para mobile, criação de um menu hambúrguer e ajustes tipográficos para telas pequenas.
 
-* 🚨 **Tratamento de erros**
-  Criação de uma página 404 personalizada e mensagens amigáveis ("Skeletons") em caso de falha ou lentidão da API.
-
 ---
+### 🏆 Bônus Implementados
+
+* ✅ **Tratamento de Erros de Rede:** Implementação de uma *Error Boundary* (`error.tsx`) personalizada. Caso a API falhe ou ocorra um erro crítico, o usuário recebe uma mensagem amigável ("Wubba Lubba Dub Dub!") com opções para tentar novamente ou recarregar a página, em vez de travamentos silenciosos.
 
 ### 4️⃣ Ferramentas utilizadas
 
