@@ -28,7 +28,7 @@ Antes de tudo, você precisa ter o **Node.js** instalado na sua máquina.
 ### 1️⃣ Clone o repositório
 
 ```bash
-git clone <https://github.com/jeehgasai/rick-and-morty-dti>
+git clone https://github.com/jeehgasai/rick-and-morty-dti
 ```
 
 ### 2️⃣ Acesse a pasta do projeto
@@ -74,29 +74,24 @@ Durante o desenvolvimento, algumas premissas foram definidas para orientar as de
 * **Definição simples de Similaridade**
   Como a API não fornece relações diretas entre personagens, considerei como “similares” aqueles que compartilham a mesma **espécie**.
 
----
-
 ## 🛠️ Decisões de Projeto
 
-Como este foi meu primeiro projeto utilizando **Next.js e TypeScript**, minhas decisões foram guiadas principalmente pelo que estava especificado no desafio e por boas práticas que fui aprendendo durante o desenvolvimento, a partir de tutoriais, vídeos e exemplos da comunidade.
+Como este foi meu primeiro projeto utilizando **Next.js e TypeScript**, minhas decisões foram guiadas principalmente pelo que estava especificado no desafio e por boas práticas que fui aprendendo durante o desenvolvimento, a partir de tutoriais e exemplos da comunidade.
 
-### 🔍 Busca de Personagens (Client-Side)
+### 🔍 Busca de Personagens (Client-Side e Cascata)
 
-A implementação da busca foi feita como um **Client Component** (`use client`), pois envolve interação direta do usuário.
+A implementação da busca foi feita como um **Client Component** (`use client`). Essa escolha baseou-se em conteúdos introdutórios sobre Next.js que explicam que funcionalidades interativas (como inputs e autocomplete) funcionam melhor no lado do cliente.
 
-Essa escolha foi baseada em conteúdos introdutórios sobre Next.js que explicam que funcionalidades como **barra de busca, filtros e autocomplete** funcionam melhor no lado do cliente, já que precisam responder rapidamente enquanto o usuário digita.
+Para atender ao requisito de **buscar por múltiplos critérios** (Nome, Status, Espécie, Gênero) sem poluir o visual minimalista do Figma com vários botões de filtro, implementei uma lógica de **Busca em Cascata**:
 
-Utilizando `useState`, consegui criar uma busca simples e intuitiva, onde:
+1.  O sistema tenta buscar primeiro pelo **Nome** do personagem.
+2.  Caso a API não retorne resultados, o código tenta automaticamente buscar pelo termo como **Espécie** (ex: "Alien").
+3.  Se ainda não encontrar, tenta por **Status** (ex: "Alive") ou **Gênero**.
 
-* O usuário digita o nome do personagem
-* A lista é atualizada dinamicamente
-* Não é necessário recarregar a página
+Dessa forma, consegui manter a interface simples (apenas um campo de texto) mas funcional, permitindo que o usuário digite "Human" ou "Dead" e receba os resultados corretos.
 
-A listagem principal continua utilizando **Server Side Rendering**, conforme sugerido pelo desafio, enquanto a busca fica responsável apenas por melhorar a experiência do usuário.
+Essa separação entre a listagem principal (Server Side Rendering) e a busca (Client Side) ajudou a manter o código organizado e foi a solução ideal para atender aos requisitos complexos do projeto dentro do meu nível atual de aprendizado.
 
-Essa separação ajudou a manter o código mais organizado e foi suficiente para atender aos requisitos do projeto sem adicionar complexidade desnecessária para quem ainda está em processo de aprendizado.
-
----
 ### 🧩 Organização e Modularização
 
 * Componentes reutilizáveis separados em `app/components`
@@ -144,14 +139,17 @@ Após analisar a API, essa se mostrou a forma mais consistente de agrupar person
 
 ### 3️⃣ O que poderia ser melhorado com mais tempo?
 
+* 📏 **Refinamento do Pixel Perfect**
+  Ajuste fino de espaçamentos (paddings/margins), especialmente na transição entre os detalhes e a seção "Outros Personagens", para garantir fidelidade visual absoluta ao Figma.
+
 * 🧪 **Testes Automatizados**
-  Implementação de testes unitários com Jest ou Vitest
+  Implementação de testes unitários com Jest ou Vitest para garantir a estabilidade dos componentes.
 
 * 📱 **Responsividade aprimorada**
-  Melhor adaptação para mobile, menu hambúrguer e ajustes tipográficos
+  Melhor adaptação para mobile, criação de um menu hambúrguer e ajustes tipográficos para telas pequenas.
 
 * 🚨 **Tratamento de erros**
-  Página 404 personalizada e mensagens amigáveis em caso de falha da API
+  Criação de uma página 404 personalizada e mensagens amigáveis ("Skeletons") em caso de falha ou lentidão da API.
 
 ---
 
