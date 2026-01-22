@@ -1,22 +1,20 @@
 # 🧪 Rick and Morty Explorer
 
 Bem-vindo(a)! 👋
-Este projeto foi desenvolvido como parte do **desafio técnico da dti digital** e também marcou meu **primeiro contato prático com TypeScript**.
+Este projeto faz parte do meu **portfólio pessoal** e representa um marco importante na minha trajetória como desenvolvedora front-end: foi meu **primeiro projeto prático utilizando TypeScript e Next.js**.
 
-Até então, minha base era **HTML, CSS e JavaScript básico**. Tive **4 dias** para assimilar novos conceitos, aprender a estrutura do **Next.js**, entender tipagens e aplicar tudo isso em um projeto real — o que tornou o desafio ainda mais intenso e significativo.
+Até então, minha base era **HTML, CSS e JavaScript básico**. Tive poucos dias para estudar novos conceitos, entender tipagens, aprender a estrutura do Next.js e aplicar tudo isso em um projeto real. O resultado é uma aplicação que reflete não só o produto final, mas principalmente **meu processo de aprendizado, adaptação e evolução técnica**.
 
-Grande parte do aprendizado aconteceu *fazendo*: lendo documentação, testando, errando, corrigindo e utilizando **IA generativa (Gemini)** como apoio para entender erros, sintaxe e boas práticas.
-
-Mais do que cumprir requisitos, este projeto representa meu esforço de aprendizado rápido, autonomia e capacidade de adaptação diante de novas tecnologias.
+Grande parte do desenvolvimento aconteceu de forma prática: lendo documentação, testando hipóteses, errando, corrigindo e utilizando **IA generativa (Gemini)** como apoio para compreender erros, sintaxe e boas práticas.
 
 ---
 
 ## ✨ Visão Geral do Projeto
 
-* Listagem de personagens
+* Listagem de personagens do universo Rick and Morty
 * Página de detalhes com informações completas
 * Seção de personagens similares
-* Busca por nome
+* Busca dinâmica por texto
 * Interface fiel ao Figma (Pixel Perfect no Desktop)
 
 ---
@@ -51,48 +49,51 @@ npm run dev
 
 ### 5️⃣ Acesse no navegador
 
-Abra:
-👉 **[http://localhost:3000](http://localhost:3000)**
+👉 [http://localhost:3000](http://localhost:3000)
 
 Pronto! Agora é só explorar o multiverso 🌀
 
 ---
 
-## 🧠 Premissas Assumidas
+## 🧠 Premissas e Contexto
 
-Durante o desenvolvimento, algumas premissas foram definidas para orientar as decisões técnicas:
+Algumas decisões e premissas guiaram o desenvolvimento deste projeto:
 
-* **Curva de aprendizado acelerada**
-  Como este foi meu primeiro projeto em TypeScript e Next.js, assumi uma abordagem prática: aprender enquanto desenvolvia, validando cada decisão aos poucos.
+* **Aprendizado acelerado**
+  Este projeto foi construído enquanto eu aprendia TypeScript e Next.js, adotando uma abordagem prática e incremental.
 
 * **Foco em Desktop (Pixel Perfect)**
-  O protótipo do Figma possui medidas muito específicas. Dediquei bastante tempo analisando espaçamentos, tamanhos, posições e sobreposições diretamente no Figma para garantir a maior fidelidade visual possível em telas grandes (1920px).
+  O layout foi baseado em um protótipo com medidas bem específicas. Dediquei atenção especial a espaçamentos, tamanhos, alinhamentos e sobreposições, buscando a maior fidelidade visual possível em telas grandes (1920px).
 
-* **Disponibilidade da API**
-  Assumi que a API pública de Rick and Morty estaria estável e disponível durante o uso da aplicação.
+* **Uso de API pública**
+  A aplicação consome a API pública de Rick and Morty, assumindo sua disponibilidade durante o uso.
 
-* **Definição simples de Similaridade**
-  Como a API não fornece relações diretas entre personagens, considerei como “similares” aqueles que compartilham a mesma **espécie**.
+* **Similaridade simples e coerente**
+  Como não existem relações diretas entre personagens na API, utilizei a espécie como critério de similaridade.
+
+---
 
 ## 🛠️ Decisões de Projeto
 
-Como este foi meu primeiro projeto utilizando **Next.js e TypeScript**, minhas decisões foram guiadas principalmente pelo que estava especificado no desafio e por boas práticas que fui aprendendo durante o desenvolvimento, a partir de tutoriais e exemplos da comunidade.
+Como este foi meu primeiro contato com **Next.js e TypeScript**, minhas decisões foram guiadas por boas práticas básicas, exemplos da documentação oficial e conteúdos introdutórios da comunidade.
 
 ### 🔍 Busca de Personagens (Client-Side e Cascata)
 
-A implementação da busca foi feita como um **Client Component** (`use client`). Essa escolha baseou-se em conteúdos introdutórios sobre Next.js que explicam que funcionalidades interativas (como inputs e autocomplete) funcionam melhor no lado do cliente.
+A busca foi implementada como um **Client Component** (`use client`), já que envolve interação direta do usuário.
 
-Para atender ao requisito de **buscar por múltiplos critérios** (Nome, Status, Espécie, Gênero) sem poluir o visual minimalista do Figma com vários botões de filtro, implementei uma lógica de **Busca em Cascata**:
+Para manter a interface simples com apenas um campo de texto implementei uma **lógica de busca em cascata**:
 
-1.  O sistema tenta buscar primeiro pelo **Nome** do personagem.
-2.  Caso a API não retorne resultados, o código tenta automaticamente buscar pelo termo como **Espécie** (ex: "Alien").
-3.  Se ainda não encontrar, tenta por **Status** (ex: "Alive") ou **Gênero**.
+* Primeiro, o sistema tenta buscar pelo **nome** do personagem
+* Caso não haja resultados, tenta interpretar o termo como **espécie**
+* Em seguida, tenta como **status** ou **gênero**
 
-Dessa forma, consegui manter a interface simples (apenas um campo de texto) mas funcional, permitindo que o usuário digite "Human" ou "Dead" e receba os resultados corretos.
+Essa abordagem permite que o usuário digite termos como `Human`, `Alien` ou `Dead` e ainda assim receba resultados relevantes, sem a necessidade de múltiplos filtros visuais.
 
-Essa separação entre a listagem principal (Server Side Rendering) e a busca (Client Side) ajudou a manter o código organizado e foi a solução ideal para atender aos requisitos complexos do projeto dentro do meu nível atual de aprendizado.
+A listagem principal utiliza **Server Side Rendering**, enquanto a busca acontece no lado do cliente, equilibrando organização do código e boa experiência de uso dentro do meu nível atual de aprendizado.
 
-### 🧩 Organização e Modularização
+---
+
+## 🧩 Organização e Modularização
 
 * Componentes reutilizáveis separados em `app/components`
   (Header, Card, Search, etc.)
@@ -100,77 +101,45 @@ Essa separação entre a listagem principal (Server Side Rendering) e a busca (C
 * Tipagens centralizadas em `types/`
   Evita duplicação de interfaces e facilita a manutenção
 
-* **Client Components isolados**
-  Componentes que exigem interação (ex: Search com `useState`) foram isolados para não impactar o carregamento inicial da aplicação
+* Client Components isolados
+  Componentes que exigem interação (ex: Search com `useState`) foram isolados para não impactar o carregamento inicial
 
 ---
 
 ## 🧬 Lógica de Similaridade de Personagens
 
-Na página de detalhes, existe a seção **"Outros personagens"**. A lógica funciona da seguinte forma:
+Na página de detalhes, existe a seção **"Outros personagens"**, cuja lógica funciona assim:
 
-1. Identifico a **espécie** do personagem atual
+1. Identifico a espécie do personagem atual
 2. Faço uma requisição à API filtrando personagens dessa mesma espécie
 3. Excluo o personagem atual do resultado
-4. Exibo os **4 primeiros personagens** encontrados
+4. Exibo os 4 primeiros personagens encontrados
 
-Essa abordagem garante recomendações simples, coerentes e alinhadas aos dados disponíveis na API.
-
----
-
-## 💬 Perguntas do Desafio
-
-### 1️⃣ Qual foi o maior desafio técnico?
-
-Sem dúvida, o maior desafio foi **aprender TypeScript e Next.js ao mesmo tempo em que desenvolvia o projeto**, dentro de um prazo curto de 4 dias.
-
-Além disso, alcançar o **Pixel Perfect** exigido pelo Figma demandou muita atenção aos detalhes. Passei bastante tempo conferindo dimensões, espaçamentos, alinhamentos e sobreposição de elementos diretamente no Figma, ajustando propriedades como `position`, `absolute`, `z-index` e margens até que o layout ficasse o mais fiel possível.
-
-Esse processo foi desafiador, mas extremamente enriquecedor para meu aprendizado.
+Essa abordagem gera recomendações simples, coerentes e alinhadas aos dados disponíveis.
 
 ---
 
-### 2️⃣ Como foi definida a lógica de similaridade?
+## 🏆 Bônus Implementados
 
-A similaridade foi definida com base no atributo **species (Espécie)**.
-Após analisar a API, essa se mostrou a forma mais consistente de agrupar personagens de maneira relevante dentro do universo da série.
-
----
-
-### 3️⃣ O que poderia ser melhorado com mais tempo?
-
-* 📏 **Refinamento do Pixel Perfect**
-  Ajuste fino de espaçamentos (paddings/margins), especialmente na transição entre os detalhes e a seção "Outros Personagens", para garantir fidelidade visual absoluta ao Figma.
-
-* 🧪 **Testes Automatizados**
-  Implementação de testes unitários com Jest ou Vitest para garantir a estabilidade dos componentes.
-
-* 📱 **Responsividade aprimorada**
-  Melhor adaptação para mobile, criação de um menu hambúrguer e ajustes tipográficos para telas pequenas.
+* ✅ **Tratamento de erros de rede**
+  Implementação de uma Error Boundary (`error.tsx`). Caso a API falhe ou ocorra um erro crítico, o usuário recebe uma mensagem amigável em vez de um travamento silencioso.
 
 ---
-### 🏆 Bônus Implementados
 
-* ✅ **Tratamento de Erros de Rede:** Implementação de uma *Error Boundary* (`error.tsx`) personalizada. Caso a API falhe ou ocorra um erro crítico, o usuário recebe uma mensagem amigável ("Wubba Lubba Dub Dub!") com opções para tentar novamente ou recarregar a página, em vez de travamentos silenciosos.
-
-### 4️⃣ Ferramentas utilizadas
+## 🔧 Ferramentas Utilizadas
 
 * **IntelliJ IDEA** — IDE principal
-* **Next.js / React / Tailwind CSS** — Documentações oficiais e exemplos
-* **IA Generativa (Gemini)** — Utilizada como apoio durante o aprendizado para:
+* **Next.js / React / Tailwind CSS** — Documentações oficiais e exemplos da comunidade
+* **IA Generativa (Gemini)** — Apoio durante o aprendizado para:
 
-    * Compreender conceitos de TypeScript
-    * Resolver erros de tipagem
-    * Discutir organização de código e estrutura de pastas
+  * Compreensão de conceitos de TypeScript
+  * Resolução de erros de tipagem
+  * Discussão de organização de código e estrutura de pastas
 
 ---
 
 ## 💚 Considerações Finais
 
-Este projeto representa não só a aplicação de conhecimentos técnicos, mas também minha preocupação com organização, clareza de código e boas práticas.
-
-Foi desenvolvido com atenção aos detalhes, curiosidade e vontade de evoluir como desenvolvedora front-end.
-
----
+Este projeto representa um passo importante na minha evolução como desenvolvedora front-end. Mais do que o resultado visual, ele reflete meu comprometimento com aprendizado contínuo, atenção aos detalhes e boas práticas de código.
 
 Feito com 💚 e código por **Jéssica** ✨
