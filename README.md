@@ -26,13 +26,13 @@ Antes de tudo, você precisa ter o **Node.js** instalado na sua máquina.
 ### 1️⃣ Clone o repositório
 
 ```bash
-git clone https://github.com/jeehgasai/rick-and-morty-dti
+git clone https://github.com/jeehgasai/rick-and-morty-explorer
 ```
 
 ### 2️⃣ Acesse a pasta do projeto
 
 ```bash
-cd rick-and-morty-dti
+cd rick-and-morty-explorer
 ```
 
 ### 3️⃣ Instale as dependências
