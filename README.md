@@ -1,7 +1,16 @@
 # 🧪 Rick and Morty Explorer
 
-Bem-vindo(a)! 👋
+🔗 **Deploy:**  
+https://rick-and-morty-explorer-omega.vercel.app/
+
+📦 **Repositório:**  
+https://github.com/jeehgasai/rick-and-morty-explorer
+
+---
+
+Bem-vindo(a)! 👋  
 Este projeto faz parte do meu **portfólio pessoal** e representa um marco importante na minha trajetória como desenvolvedora front-end: foi meu **primeiro projeto prático utilizando TypeScript e Next.js**.
+
 
 Até então, minha base era **HTML, CSS e JavaScript básico**. Tive poucos dias para estudar novos conceitos, entender tipagens, aprender a estrutura do Next.js e aplicar tudo isso em um projeto real. O resultado é uma aplicação que reflete não só o produto final, mas principalmente **meu processo de aprendizado, adaptação e evolução técnica**.
 
@@ -57,19 +66,17 @@ Pronto! Agora é só explorar o multiverso 🌀
 
 ## 🧠 Premissas e Contexto
 
-Algumas decisões e premissas guiaram o desenvolvimento deste projeto:
+* **Aprendizado acelerado**  
+  Projeto desenvolvido enquanto eu aprendia TypeScript e Next.js, adotando uma abordagem prática e incremental.
 
-* **Aprendizado acelerado**
-  Este projeto foi construído enquanto eu aprendia TypeScript e Next.js, adotando uma abordagem prática e incremental.
+* **Foco em Desktop (Pixel Perfect)**  
+  Atenção especial a espaçamentos, alinhamentos e dimensões para fidelidade visual em telas grandes (1920px).
 
-* **Foco em Desktop (Pixel Perfect)**
-  O layout foi baseado em um protótipo com medidas bem específicas. Dediquei atenção especial a espaçamentos, tamanhos, alinhamentos e sobreposições, buscando a maior fidelidade visual possível em telas grandes (1920px).
+* **Uso de API pública**  
+  Consumo da API pública de Rick and Morty.
 
-* **Uso de API pública**
-  A aplicação consome a API pública de Rick and Morty, assumindo sua disponibilidade durante o uso.
-
-* **Similaridade simples e coerente**
-  Como não existem relações diretas entre personagens na API, utilizei a espécie como critério de similaridade.
+* **Similaridade simples e coerente**  
+  A espécie foi utilizada como critério de similaridade entre personagens.
 
 ---
 
@@ -121,8 +128,8 @@ Essa abordagem gera recomendações simples, coerentes e alinhadas aos dados dis
 
 ## 🏆 Bônus Implementados
 
-* ✅ **Tratamento de erros de rede**
-  Implementação de uma Error Boundary (`error.tsx`). Caso a API falhe ou ocorra um erro crítico, o usuário recebe uma mensagem amigável em vez de um travamento silencioso.
+* ✅ **Tratamento de erros de rede**  
+  Implementação de uma Error Boundary (`error.tsx`) com feedback amigável ao usuário.
 
 ---
 
