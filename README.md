@@ -137,11 +137,37 @@ Essa abordagem gera recomendações simples, coerentes e alinhadas aos dados dis
 
 * **IntelliJ IDEA** — IDE principal
 * **Next.js / React / Tailwind CSS** — Documentações oficiais e exemplos da comunidade
-* **IA Generativa (Gemini)** — Apoio durante o aprendizado para:
+* **IA Generativa (Gemini)** — Ferramenta de apoio ao aprendizado e resolução de problemas
 
-  * Compreensão de conceitos de TypeScript
-  * Resolução de erros de tipagem
-  * Discussão de organização de código e estrutura de pastas
+## 🤖 Desenvolvimento Orientado a IA
+
+Este projeto foi também um exercício de **aprendizado acelerado com apoio de Inteligência Artificial**.
+
+Durante o desenvolvimento, utilizei IA generativa como ferramenta de suporte para:
+- Traduzir conceitos de lógica já conhecidos para a sintaxe do **TypeScript**.
+- Compreender padrões de organização de componentes e rotas no **Next.js**.
+- Investigar erros, mensagens de tipagem e desafios de deploy na **Vercel**.
+
+A IA foi utilizada como apoio ao raciocínio e aprendizado, não como substituição da tomada de decisão.  
+As escolhas de arquitetura, organização e implementação final foram feitas por mim, com base no entendimento adquirido ao longo do processo.
+
+Essa abordagem me permitiu evoluir rapidamente em uma nova stack e entregar uma aplicação funcional, organizada e visualmente fiel em um curto período de tempo.
+
+## 🚧 Desafios e Pontos de Melhoria (Roadmap)
+
+Como todo projeto em fase inicial e desenvolvido dentro de um curto período de aprendizado, existem pontos que identifiquei para futuras iterações e refinamentos:
+
+* **Experiência Mobile**
+  Atualmente, a aplicação apresenta limitações em telas menores, incluindo sobreposição de elementos e áreas de clique reduzidas nos cards de personagens. Um redesenho focado em mobile-first seria prioridade em uma próxima versão.
+
+* **Edge Cases de UI**
+  Personagens com nomes muito extensos (ex: *Abadango Cluster Princess*) ainda precisam de um tratamento mais robusto de quebra de linha ou truncamento para preservar a simetria do layout.
+
+* **Otimização de Performance**
+  Possibilidade de aprimorar o carregamento e a otimização de imagens, especialmente para usuários em conexões mais lentas.
+
+Esses pontos já estão mapeados e servem como guia para a evolução contínua do projeto.
+
 
 ---
 
